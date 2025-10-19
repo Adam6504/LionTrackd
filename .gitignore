@@ -11,6 +11,13 @@
 *.sln.docstates
 *.env
 
+# MongoDB and sensitive configuration files
+**/appsettings.Development.json
+**/appsettings.*.json
+!**/appsettings.json.template
+# Allow the base appsettings.json (no secrets)
+!**/appsettings.json
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
@@ -416,3 +423,16 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.idea
+.DS_Store
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

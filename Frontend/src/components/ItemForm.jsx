@@ -1,0 +1,98 @@
+import { useState, useEffect } from 'react'
+
+function ItemForm({ item, onSubmit, onCancel }) {
+  const [formData, setFormData] = useState({
+    name: '',
+    description: '',
+    category: '',
+  })
+
+  useEffect(() => {
+    if (item) {
+      setFormData({
+        name: item.name || '',
+        description: item.description || '',
+        category: item.category || '',
+      })
+    } else {
+      setFormData({
+        name: '',
+        description: '',
+        category: '',
+      })
+    }
+  }, [item])
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (item) {
+      onSubmit(item.id, formData)
+    } else {
+      onSubmit(formData)
+    }
+    setFormData({ name: '', description: '', category: '' })
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="item-form">
+      <div className="form-group">
+        <label htmlFor="name">Name *</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+          placeholder="Enter item name"
+        />
+      </div>
+
+      <div className="form-group">
+        <label htmlFor="description">Description *</label>
+        <textarea
+          id="description"
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+          required
+          placeholder="Enter item description"
+        />
+      </div>
+
+      <div className="form-group">
+        <label htmlFor="category">Category *</label>
+        <input
+          type="text"
+          id="category"
+          name="category"
+          value={formData.category}
+          onChange={handleChange}
+          required
+          placeholder="Enter category"
+        />
+      </div>
+
+      <div className="form-actions">
+        <button type="submit" className="btn-primary">
+          {item ? 'Update Item' : 'Add Item'}
+        </button>
+        {onCancel && (
+          <button type="button" onClick={onCancel} className="btn-secondary">
+            Cancel
+          </button>
+        )}
+      </div>
+    </form>
+  )
+}
+
+export default ItemForm
