@@ -17,18 +17,18 @@ function ItemList({ items, onEdit, onDelete }) {
   return (
     <div className="items-list">
       {items.map((item) => (
-        <div key={item.id} className="item-card">
+        <div key={item.id || item.Id} className="item-card">
           <div className="item-header">
-            <h3 className="item-title">{item.name}</h3>
-            <span className="item-category">{item.category}</span>
+            <h3 className="item-title">{item.name || item.Name}</h3>
+            <span className="item-category">{item.category || item.Category}</span>
           </div>
           
-          <p className="item-description">{item.description}</p>
+          <p className="item-description">{item.description || item.Description}</p>
           
           <div className="item-meta">
-            <div>Created: {formatDate(item.createdAt)}</div>
-            {item.updatedAt !== item.createdAt && (
-              <div>Updated: {formatDate(item.updatedAt)}</div>
+            <div>Created: {formatDate(item.createdAt || item.CreatedAt)}</div>
+            {(item.updatedAt || item.UpdatedAt) !== (item.createdAt || item.CreatedAt) && (
+              <div>Updated: {formatDate(item.updatedAt || item.UpdatedAt)}</div>
             )}
           </div>
           
@@ -36,7 +36,7 @@ function ItemList({ items, onEdit, onDelete }) {
             <button onClick={() => onEdit(item)} className="btn-edit">
               ✏️ Edit
             </button>
-            <button onClick={() => onDelete(item.id)} className="btn-delete">
+            <button onClick={() => onDelete(item.id || item.Id)} className="btn-delete">
               🗑️ Delete
             </button>
           </div>

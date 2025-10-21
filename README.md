@@ -1,13 +1,9 @@
-# LionTrackd
-
-- A modern lost-&-found web application (C# .NET backend • React frontend • MongoDB Atlas).
-- A concise guide to run, configure, and extend the project for development and testing.
-
----
-
 ## What is LionTrackd?
 
 LionTrackd is a simple, easy-to-use lost & found platform. It helps students and campus visitors report and find lost items quickly by connecting finders and owners directly, optionally with a monetary reward to encourage returns.
+
+- A modern lost-&-found web application (C# .NET backend • React frontend • MongoDB Atlas).
+- A concise guide to run, configure, and extend the project for development and testing.
 
 ---
 
@@ -30,6 +26,29 @@ LionTrackd is a simple, easy-to-use lost & found platform. It helps students and
 - Tools: Swagger (Swashbuckle), Axios, ESLint, Prettier
 
 ---
+ 
+   ✅ Backend running at: http://localhost:5000
+   📚 Swagger docs at: http://localhost:5000/swagger
+
+## Testing:
+
+1. Backend runs at http://localhost:5000
+2. Swagger docs at: http://localhost:5000/swagger
+3. Frontend at Open http://localhost:5173 in your browser
+
+## Common Commands:
+
+### Backend:
+- `dotnet restore` - Restore NuGet packages
+- `dotnet build` - Build the project
+- `dotnet run` - Run the application
+- `dotnet watch run` - Run with hot reload
+
+### Frontend:
+- `npm install` - Install dependencies
+- `npm.cmd run dev` - Start dev server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
 
 ## Quick start (development)
 
@@ -43,9 +62,6 @@ Prerequisites:
 
 ```powershell
 cd Backend
-# Restore, build and run
-dotnet restore
-dotnet build
 dotnet run
 ```
 
@@ -55,7 +71,6 @@ The backend prints listening URLs (e.g. `http://localhost:5000`). Open Swagger a
 
 ```powershell
 cd Frontend
-# On Windows powershell use npm.cmd if npm shims are blocked
 npm.cmd install
 npm.cmd run dev
 ```

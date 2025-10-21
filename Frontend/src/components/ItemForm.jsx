@@ -34,7 +34,8 @@ function ItemForm({ item, onSubmit, onCancel }) {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (item) {
-      onSubmit(item.id, formData)
+      const itemId = item.id || item.Id
+      onSubmit(itemId, formData)
     } else {
       onSubmit(formData)
     }
