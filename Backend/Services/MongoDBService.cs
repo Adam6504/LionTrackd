@@ -41,6 +41,10 @@ namespace LionTrackdAPI.Services
         public async Task<Item?> GetAsync(string id) =>
             await _itemsCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
+        // Get items by category
+        public async Task<List<Item>> GetByCategoryAsync(string category) =>
+            await _itemsCollection.Find(x => x.Category == category).ToListAsync();
+
         // Create new item
         public async Task CreateAsync(Item newItem)
         {

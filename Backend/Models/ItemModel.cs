@@ -17,6 +17,8 @@ namespace LionTrackdAPI.Models
 
         [BsonElement("category")]
         public string Category { get; set; } = string.Empty;
+        [BsonElement("reward")]
+        public float Reward { get; set; } = 0.00F;
 
         [BsonElement("createdAt")]
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
