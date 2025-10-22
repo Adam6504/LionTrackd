@@ -25,6 +25,12 @@ function ItemList({ items, onEdit, onDelete }) {
           
           <p className="item-description">{item.description || item.Description}</p>
           
+          {(item.reward || item.Reward) > 0 && (
+            <div className="item-reward">
+              Reward: ${(item.reward || item.Reward).toFixed(2)}
+            </div>
+          )}
+          
           <div className="item-meta">
             <div>Created: {formatDate(item.createdAt || item.CreatedAt)}</div>
             {(item.updatedAt || item.UpdatedAt) !== (item.createdAt || item.CreatedAt) && (
@@ -34,10 +40,10 @@ function ItemList({ items, onEdit, onDelete }) {
           
           <div className="item-actions">
             <button onClick={() => onEdit(item)} className="btn-edit">
-              ✏️ Edit
+              Edit
             </button>
             <button onClick={() => onDelete(item.id || item.Id)} className="btn-delete">
-              🗑️ Delete
+              Delete
             </button>
           </div>
         </div>

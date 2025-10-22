@@ -12,30 +12,30 @@ const api = axios.create({
 // Get all items
 export const getItems = async () => {
   const response = await api.get('/items')
-  return response.data
+  return response.data.data || response.data // Extract data property or fallback to response
 }
 
 // Get single item by ID
 export const getItem = async (id) => {
   const response = await api.get(`/items/${id}`)
-  return response.data
+  return response.data.data || response.data
 }
 
 // Create new item
 export const createItem = async (itemData) => {
   const response = await api.post('/items', itemData)
-  return response.data
+  return response.data.data || response.data
 }
 
 // Update existing item
 export const updateItem = async (id, itemData) => {
-  const response = await api.put(`/items/${id}`, itemData)
-  return response.data
+  const response = await api.put(`/items?id=${id}`, itemData)
+  return response.data.data || response.data
 }
 
 // Delete item
 export const deleteItem = async (id) => {
-  const response = await api.delete(`/items/${id}`)
+  const response = await api.delete(`/items?id=${id}`)
   return response.data
 }
 

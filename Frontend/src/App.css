@@ -205,6 +205,18 @@ button {
   line-height: 1.6;
 }
 
+.item-reward {
+  display: inline-block;
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(253, 160, 133, 0.3);
+}
+
 .item-meta {
   font-size: 0.875rem;
   color: #888;

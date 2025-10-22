@@ -5,6 +5,7 @@ function ItemForm({ item, onSubmit, onCancel }) {
     name: '',
     description: '',
     category: '',
+    reward: 0,
   })
 
   useEffect(() => {
@@ -13,12 +14,14 @@ function ItemForm({ item, onSubmit, onCancel }) {
         name: item.name || '',
         description: item.description || '',
         category: item.category || '',
+        reward: item.reward || 0,
       })
     } else {
       setFormData({
         name: '',
         description: '',
         category: '',
+        reward: 0,
       })
     }
   }, [item])
@@ -39,7 +42,7 @@ function ItemForm({ item, onSubmit, onCancel }) {
     } else {
       onSubmit(formData)
     }
-    setFormData({ name: '', description: '', category: '' })
+    setFormData({ name: '', description: '', category: '', reward: 0 })
   }
 
   return (
@@ -79,6 +82,20 @@ function ItemForm({ item, onSubmit, onCancel }) {
           onChange={handleChange}
           required
           placeholder="Enter category"
+        />
+      </div>
+
+      <div className="form-group">
+        <label htmlFor="reward">Reward ($)</label>
+        <input
+          type="number"
+          id="reward"
+          name="reward"
+          value={formData.reward}
+          onChange={handleChange}
+          min="0"
+          step="0.01"
+          placeholder="Enter reward amount (optional)"
         />
       </div>
 
