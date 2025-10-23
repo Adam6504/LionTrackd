@@ -22,9 +22,7 @@ builder.Services.AddCors(options =>
         {
             policy.WithOrigins(
                       "http://localhost:5173",  // Vite dev server
-                      "http://localhost:3000",  // Alternative frontend port
-                      "http://localhost:5237",  // Backend port
-                      "https://localhost:7125") // HTTPS backend port
+                      "http://localhost:5000")  // Backend port
                   .AllowAnyHeader()
                   .AllowAnyMethod()
                   .AllowCredentials();

@@ -34,7 +34,7 @@ LionTrackd is a simple, easy-to-use lost & found platform. It helps students and
 
 1. Backend runs at http://localhost:5000
 2. Swagger docs at: http://localhost:5000/swagger
-3. Frontend at Open http://localhost:5173 in your browser
+3. Frontend at Open http://localhost:5173
 
 ## Common Commands:
 
@@ -58,24 +58,19 @@ Prerequisites:
 - Node.js 18+ and npm (`node --version`, `npm --version`)
 - MongoDB Atlas cluster (or local MongoDB)
 
-1. Start the backend
-
-```powershell
-cd Backend
-dotnet run
-```
-
-The backend prints listening URLs (e.g. `http://localhost:5000`). Open Swagger at `http://localhost:5000/swagger` while running in Development.
-
-2. Start the frontend (new terminal)
+1. Start the program
 
 ```powershell
 cd Frontend
 npm.cmd install
-npm.cmd run dev
+npm.cmd start
 ```
 
-Open: `http://localhost:5173` (Vite dev server).
+2. Open the program
+
+Open: `http://localhost:5173` (Front end Vite dev server).
+Open: `http://localhost:5000` (Backend).
+Open: `http://localhost:5000/swagger` (Swagger documentation).
 
 > PowerShell tip: If `npm` is blocked by execution policy, run `npm.cmd` or run:
 
